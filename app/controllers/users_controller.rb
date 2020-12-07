@@ -10,18 +10,19 @@ class UsersController < ApplicationController
       render plain: "Invalid user id", status: :unprocessable_entity
     end
   end
-
-  def update
-    if user
-      User.update(params[:id], user_data)
-      render json: user
+  
+  def create
+    new_user = User.new(user_params)
+    if new_user.save
+      render json: new_user
     else
-      render plain: "Invalid user id", status: :unprocessable_entity
+      render json: user.errors.full_messages, status: :unprocessable_entity
     end
   end
 
-  def create
-    if user.save
+  def update
+    if user
+      User.update(params[:id], user_params)
       render json: user
     else
       render json: user.errors.full_messages, status: :unprocessable_entity
@@ -38,11 +39,13 @@ class UsersController < ApplicationController
     end
   end
 
+  private
+  
   def user
     User.find_by_id(params[:id])
   end
 
-  def user_data
-    params.require(:user).permit(:name, :email)
+  def user_params
+    params.require(:user).permit(:username)
   end
 end
