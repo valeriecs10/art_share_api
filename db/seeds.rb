@@ -16,5 +16,4 @@ Artwork.create(title: 'Fruit Bowl', image_url: 'images/fruit_bowl.jpg', artist_i
 
 ArtworkShare.create(viewer_id: 3, artwork_id: 1)
 ArtworkShare.create(viewer_id: 3, artwork_id: 2)
-ArtworkShare.create(viewer_id: 1, artwork_id: 3)
 ArtworkShare.create(viewer_id: 1, artwork_id: 2)
