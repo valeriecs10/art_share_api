@@ -17,3 +17,14 @@ Artwork.create(title: 'Fruit Bowl', image_url: 'images/fruit_bowl.jpg', artist_i
 ArtworkShare.create(viewer_id: 3, artwork_id: 1)
 ArtworkShare.create(viewer_id: 3, artwork_id: 2)
 ArtworkShare.create(viewer_id: 1, artwork_id: 2)
+
+Comment.create(user_id: 1, artwork_id: 2, body: "Beautiful use of textures")
+Comment.create(user_id: 3, artwork_id: 1, body: "This makes me feel happy")
+Comment.create(user_id: 3, artwork_id: 2, body: "I can sense the artist's personal connection to the subject")
+
+Like.create(user_id: 1, likable_id: 1, likable_type: "Comment")
+Like.create(user_id: 1, likable_id: 3, likable_type: "Artwork")
+Like.create(user_id: 2, likable_id: 1, likable_type: "Comment")
+Like.create(user_id: 2, likable_id: 3, likable_type: "Comment")
+Like.create(user_id: 3, likable_id: 3, likable_type: "Artwork")
+Like.create(user_id: 3, likable_id: 2, likable_type: "Artwork")
