@@ -46,6 +46,16 @@ class ArtworksController < ApplicationController
     end
   end
 
+  def favorite
+    artwork_to_favorite = Artwork.find_by_id(params[:artwork_id])
+    if artwork_to_favorite
+      artwork_to_favorite.update(favorite: true)
+      render json: artwork_to_favorite
+    else
+      render plain: "Invalid artwork id", status: :unprocessable_entity
+    end
+  end
+
   private
 
   def artwork

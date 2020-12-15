@@ -8,4 +8,10 @@ Rails.application.routes.draw do
   resources :artworks, only: [:show, :create, :update, :destroy]
   resources :artwork_shares, only: [:create, :destroy]
   resources :comments, only: [:index, :create, :destroy]
+  resources :artworks do
+    patch 'favorite'
+  end
+  resources :artwork_shares do
+    patch 'favorite'
+  end
 end

@@ -18,6 +18,16 @@ class ArtworkSharesController < ApplicationController
     end
   end
 
+  def favorite
+    share_to_favorite = ArtworkShare.find_by_id(params[:artwork_share_id])
+    if share_to_favorite
+      share_to_favorite.update(favorite: true)
+      render json: share_to_favorite
+    else
+      render plain: "Invalid artwork id", status: :unprocessable_entity
+    end
+  end
+
   private
 
   def share
