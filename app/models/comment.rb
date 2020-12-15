@@ -13,4 +13,8 @@ class Comment < ApplicationRecord
 
   has_many :likes,
     as: :likable
+
+  has_many :likers,
+    through: :likes,
+    source: :liker
 end
